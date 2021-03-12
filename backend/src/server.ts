@@ -1,12 +1,9 @@
 import express from 'express';
-
+import routes from './routes';
+import './database/connection';
 const app = express();
 
-app.get('/aqui', (request, response)=>{
-
-    return response.json({
-        message: "Estou aqui padrin"
-    })
-})
+app.use(express.json())
+app.use(routes)
 
 app.listen(3333);
